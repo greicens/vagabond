@@ -2,7 +2,7 @@ class CreateCities < ActiveRecord::Migration[5.0]
   def change
     create_table :cities do |t|
       t.string :name
-      t.reference :post
+      t.references :post
       t.text :description
 
       t.timestamps

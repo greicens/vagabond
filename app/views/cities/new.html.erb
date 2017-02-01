@@ -1,0 +1,11 @@
+<%= form_for @city do |f| %>
+  <div class="">
+    <%= f.text_field :name, placeholder: "city name" %>
+  </div>
+  <div class="">
+    <%= f.text_field :description, placeholder: "city description" %>
+  </div>
+  <div class="">
+    <%= f.submit %>
+  </div>
+<% end %>
