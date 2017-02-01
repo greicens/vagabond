@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   get '/cities/new', to: 'cities#new'
   post '/cities', to: 'cities#create'
   get '/cities/:id', to: 'cities#show'
-  
+
+  get '/login', to: 'sessions#new'
+  post '/sessions', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
 end
