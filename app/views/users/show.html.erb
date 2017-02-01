@@ -1,0 +1,50 @@
+<div class="row">
+  <!-- profile info -->
+   <section class="col s12 m3 offset-m1">
+     <div class="card">
+       <%= image_tag "avatar.png", class: "center-align" %>
+       <!-- <div class="card-image">
+         <span class="card-title">Card Title</span>
+       </div> -->
+       <div class="card-content teal white-text">
+         <p>
+           Name: <%= @user.first_name %>
+          </p>
+          <p>
+            Date joined: <%= @user.created_at %>
+          </p>
+          <p>
+            Current city: <%= @user.current_city %>
+          </p>
+       </div>
+     </div>
+   </section>
+   <!--post section -->
+   <section class="col s12 m7">
+     <div class="row">
+    <h3 class="header center"><%= @user.first_name %>'s posts</h3>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>This is the post</p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Edit" %>
+          <%= link_to "Delete" %>
+        </div>
+      </div>
+    </div>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>This is the post</p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Edit" %>
+          <%= link_to "Delete" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+ </div>
