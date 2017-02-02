@@ -1,24 +1,19 @@
 <section class="row">
-  <h3 class="center">Create an Account!</h3>
+  <h3 class="center">Edit an Account!</h3>
   <div class="col m8 offset-m2 col s12">
   <%= form_for @user  do |f| %>
       <div class="row">
         <div class="input-field col s6">
-          <%= f.text_field :first_name, placeholder: "First Name" %>
+          <%= f.text_field :first_name %>
         </div>
         <div class="input-field col s6">
-          <%= f.text_field :last_name, placeholder: "Last Name" %>
+          <%= f.text_field :last_name %>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <%= f.text_field :email, placeholder: "Email" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <%= f.password_field :password, placeholder: "Password"%>
+          <%= f.text_field :email%>
         </div>
       </div>
       <div class="row">
@@ -29,7 +24,8 @@
           </div>
         </div>
       </div>
-      <%= f.submit "Sign Up", class:"btn" %>
+      <%= f.submit "Submit", class:"btn" %>
+      <%= link_to "Delete Profile", @user, :class => "btn", method: :delete %>
     <% end %>
   </div>
 </section>
