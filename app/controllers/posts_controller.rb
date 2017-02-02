@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-
+  before_action :require_login, only: [:new]
   def index
-    @posts = Post.all
+    @city_posts = Post.all
   end
 
   def new
@@ -9,20 +9,27 @@ class PostsController < ApplicationController
   end
 
   def create
+    city_id = params[:city_id]
+    @city = City.find_by(id: city_id)
+    @user = current_user
     @post = Post.create(post_params)
-    p "#{params} this is the params"
     if @post.save
-      redirect_to @post
+      @city.posts << @post
+      @user.posts << @post
+      redirect_to user_post_path(@user, @post)
     else
       p @post.errors.full_messages
       flash[:error] = "Unable to add new post try again"
-      redirect_to posts_new_path
+      redirect_to posts_new_path(current_user)
     end
 
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    post_id = params[:id]
+    @user = current_user
+    @post = @user.posts.find_by_id(post_id)
+
   end
 
 

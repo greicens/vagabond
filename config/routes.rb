@@ -22,11 +22,12 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   # POST ROUTES
-  get '/users/:id/posts', to: 'posts#index'
-  get '/posts/new', to: 'posts#new'
-  post '/posts', to: 'posts#create'
-  get '/posts/:id', to: 'posts#show', as: 'post'
-  patch '/posts/:id', to: 'posts#update'
-  delete '/posts/:id', to: 'posts#destroy'
+  # get '/users/:id/posts', to: 'posts#index'
+  # get '/cities/:city_id/posts', to: 'posts#index'
+  get '/cities/:city_id/posts', to: 'posts#new', as: 'new_post'
+  post '/cities/:city_id/posts', to: 'posts#create', as: 'posts'
+  get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
+  # patch '/posts/:id', to: 'posts#update'
+  # delete '/posts/:id', to: 'posts#destroy'
 
 end
