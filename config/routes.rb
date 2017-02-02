@@ -23,8 +23,9 @@ Rails.application.routes.draw do
 
   # POST ROUTES
   get '/users/:id/posts', to: 'posts#index'
-  get '/posts/:id', to: 'post#show'
+  get '/posts/new', to: 'posts#new'
   post '/posts', to: 'posts#create'
+  get '/posts/:id', to: 'posts#show', as: 'post'
   patch '/posts/:id', to: 'posts#update'
   delete '/posts/:id', to: 'posts#destroy'
 
