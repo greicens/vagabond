@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
   before_action :require_login, only: [:new]
-
-  # before_action :require_login, only: [:new]
   def index
     @city_posts = Post.all
   end
@@ -36,20 +34,22 @@ class PostsController < ApplicationController
 
 
   def edit
+    @user = User.friendly.find(params[:user_id])
     @post = Post.find_by_id(params[:id])
   end
 
   def update
+    @user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
-    redirect_to post_path
+    redirect_to user_path(@user)
   end
 
   def destroy
-    user = User.friendly.find(current_user)
+    user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.destroy
-    redirect_to user_path
+    redirect_to user_path(user)
   end
 
   private
