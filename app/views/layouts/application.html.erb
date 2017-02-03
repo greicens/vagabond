@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Vagabond</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Vagabond</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <header class="row">
-      <nav class="right-align">
-        <% if current_user %>
-          <%= link_to "Profile", user_path(current_user) %>
-          <%= link_to "Log Out", logout_path %>
-        <% else %>
-          <%=link_to "Log In", login_path%>
-          <%=link_to "Sign Up", new_user_path%>
+    <body>
+        <header class="row">
+            <nav class="right-align">
+                <% if current_user %>
+                <%= link_to "Profile", user_path(current_user) %>
+                <%= link_to "Log Out", logout_path %>
+            <% else %>
+                <%=link_to "Log In", "#modal1"%>
+                <%=link_to "Sign Up", new_user_path%>
+                <% end %>
+            </nav>
+        </header>
+        <% flash.each do |name, msg| %>
+        <p>
+            <h4><%= name.capitalize %>
+                :
+                <%= msg %></h4>
+        </p>
         <% end %>
-      </nav>
-    </header>
-    <% flash.each do |name, msg| %>
-      <p>
-        <h4><%= name.capitalize %> : <%= msg %></h4>
-      </p>
-      <% end %>
-    <%= yield %>
-  </body>
+        <%= yield %>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <%= render "forms/login" %>
+        </div>
+
+    </body>
 </html>

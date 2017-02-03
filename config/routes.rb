@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   get '/cities/:id', to: 'cities#show'
 
   # SESSION ROUTES
-  get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
