@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show]
+  # before_action :require_login, only: [:show]
 
   def index
     @users = User.all
@@ -21,29 +21,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
     render :show
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def update
-    user = User.find_by_id(params[:id])
-    user.update(user_params)
+    @user = User.friendly.find(params[:id])
+    @user.update(user_params)
     redirect_to user_path
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
-    user.destroy
+    @user = User.friendly.find(params[:id])
+    @user.destroy
     redirect_to '/'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password, :photo)
   end
 end

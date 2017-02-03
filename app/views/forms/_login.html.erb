@@ -1,6 +1,6 @@
 <div class="modal-content col m8 offset-m2 col s12">
   <h5 class="center">Welcome back to the adventure!</h5>
-  <%= form_for @user, url:'/sessions', method: 'post' do |f| %>
+  <%= form_for @user do |f| %>
     <div class="">
       <%= f.email_field :email, placeholder: "Email" %>
     </div>

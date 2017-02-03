@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   def index
+    @user = current_user || User.new
     @cities = City.all
   end
 
@@ -13,7 +14,8 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @city = City.find_by_id(params[:id])
+    @city = City.friendly.find(params[:id])
+    @user = User.new
   end
 
   private
