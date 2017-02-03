@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :posts
 
+  mount_uploader :photo, PhotoUploader
   has_secure_password
 
   def self.confirm(params)

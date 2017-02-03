@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170202233300) do
     t.string   "password_digest"
     t.string   "slug"
     t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+    t.string   "photo"
   end
 
   add_foreign_key "posts", "cities"

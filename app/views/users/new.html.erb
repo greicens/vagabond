@@ -1,7 +1,7 @@
 <section class="row">
   <h3 class="center">Create an Account!</h3>
   <div class="col m8 offset-m2 col s12">
-  <%= form_for @user  do |f| %>
+  <%= form_for @user, html: { multipart: true } do |f| %>
       <div class="row">
         <div class="input-field col s6">
           <%= f.text_field :first_name, placeholder: "First Name" %>
@@ -27,6 +27,11 @@
           <div class="input-field inline">
             <%= f.text_field :current_city %>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.file_field :photo %>
         </div>
       </div>
       <%= f.submit "Sign Up", class:"btn" %>

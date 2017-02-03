@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   # CITY ROUTES
   get '/cities', to: 'cities#index'
-  get '/cities/new', to: 'cities#new'
+  get '/cities/new', to: 'cities#new', as: 'new_city'
   post '/cities', to: 'cities#create'
-  get '/cities/:id', to: 'cities#show'
+  get '/cities/:id', to: 'cities#show', as: 'city'
 
   # SESSION ROUTES
   get '/login', to: 'sessions#new'
