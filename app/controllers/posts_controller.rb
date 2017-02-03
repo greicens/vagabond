@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_login, only: [:new]
+
+  # before_action :require_login, only: [:new]
   def index
     @city_posts = Post.all
   end
@@ -9,8 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    city_id = params[:city_id]
-    @city = City.find_by(id: city_id)
+    @city = City.friendly.find(params[:city_id])
     @user = current_user
     @post = Post.create(post_params)
     if @post.save
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by_id(current_user)
+    user = User.friendly.find(current_user)
     post = Post.find_by_id(params[:id])
     post.destroy
     redirect_to user_path
