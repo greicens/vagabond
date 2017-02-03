@@ -18,13 +18,19 @@
                 </p>
             </div>
         </div>
+        <%= button_tag "Edit", data:{target: "edit-profile-modal"}, class: "btn" %>
+    </section>
+
+    <!-- EDIT/DELETE PROFILE -->
+    <section class="modal">
+      <%= render "forms/edit_profile" %>
     </section>
     <!--POST SECTION -->
     <section class="col s12 m7">
       <h3 class="header center"><%= @user.first_name %>'s posts</h3>
         <div class="row">
             <%= render "users/users_post" %>
-
         </div>
     </section>
+
 </div>
