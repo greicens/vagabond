@@ -33,7 +33,7 @@
         </div>
         <div class="card-action">
           <%= link_to "Edit", post_path(@user, post) %>
-          <%= link_to "Delete", delete_post_path(@user, post),:method => :delete %>
+          <%= link_to "Delete", delete_post_path(@user, post),:method => :delete, data: {confirm: "Are you sure?"} %>
         </div>
       </div>
     </div>
