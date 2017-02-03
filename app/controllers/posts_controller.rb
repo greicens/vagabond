@@ -10,8 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    city_id = params[:city_id]
-    @city = City.find_by(id: city_id)
+    @city = City.friendly.find(params[:city_id])
     @user = current_user
     @post = Post.create(post_params)
     if @post.save
