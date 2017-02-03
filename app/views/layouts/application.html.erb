@@ -9,6 +9,30 @@
   </head>
 
   <body>
+    <header class="row">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/">Vagabond</a>
+          <%= link_to "Cities", cities_path %>
+          <% if current_user %>
+          <ul id="nav-mobile" class="right">
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", logout_path %></li>
+          </ul>
+          <% else %>
+          <ul id="nav-mobile" class="right">
+            <li><%=link_to "Log In", login_path%></li>
+            <li><%=link_to "Sign Up", new_user_path%></li>
+          </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <% flash.each do |name, msg| %>
+      <p>
+        <h4><%= name.capitalize %> : <%= msg %></h4>
+      </p>
+      <% end %>
     <%= yield %>
   </body>
 </html>
