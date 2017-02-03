@@ -27,23 +27,15 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <p>This is the post</p>
+          <% @user.posts.each do |post| %>
+          <p><%= post.title %></p>
+          <p><%= post.message %></p>
         </div>
         <div class="card-action">
-          <%= link_to "Edit" %>
-          <%= link_to "Delete" %>
+          <%= link_to "Edit", edit_post_path %>
+          <%= link_to "Delete", delete_post_path %>
         </div>
-      </div>
-    </div>
-    <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>This is the post</p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Edit" %>
-          <%= link_to "Delete" %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

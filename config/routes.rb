@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get '/cities/:city_id/posts', to: 'posts#new', as: 'new_post'
   post '/cities/:city_id/posts', to: 'posts#create', as: 'posts'
   get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
-  # patch '/posts/:id', to: 'posts#update'
-  # delete '/posts/:id', to: 'posts#destroy'
+  get '/posts/:id/edit', to: 'posts#edit', as: 'edit_post'
+  patch '/posts/:id', to: 'posts#update'
+  delete '/users/user:id/posts/:id', to: 'posts#destroy', as: 'delete_post'
 
 end
