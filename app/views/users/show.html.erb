@@ -24,20 +24,20 @@
    <section class="col s12 m7">
      <div class="row">
     <h3 class="header center"><%= @user.first_name %>'s posts</h3>
+    <% @user.posts.each do |post| %>
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <% @user.posts.each do |post| %>
           <p><%= post.title %></p>
           <p><%= post.message %></p>
         </div>
         <div class="card-action">
-          <%= link_to "Edit", edit_post_path %>
-          <%= link_to "Delete", delete_post_path %>
+          <%= link_to "Edit", post_path(@user, post) %>
+          <%= link_to "Delete", delete_post_path(@user, post),:method => :delete %>
         </div>
-        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
   </section>
  </div>
