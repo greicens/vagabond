@@ -1,3 +1,8 @@
 <h1><%= @city.name %></h1>
 <h2><%= @city.description %></h2>
 <%= link_to "Add New Post", new_post_path(@city) %>
+<h3>Posts from <%=@city.name %></h3>
+<% @city.posts.each do |post| %>
+<p><%= post.title %></p>
+<p><%= post.message %></p>
+<% end %>

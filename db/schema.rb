@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170202233300) do
     t.integer  "points"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "photo"
     t.string   "slug"
     t.string   "photo"
     t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
