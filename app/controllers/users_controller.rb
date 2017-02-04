@@ -15,8 +15,8 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to @user
     else
-      flash[:error] = "Unable to add new user try again"
-      redirect_to login_path
+      flash[:error] = @user.errors.full_messages.join(" ")
+      # redirect_to '/'
     end
   end
 
