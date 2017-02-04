@@ -6,11 +6,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @user = current_user || User.new
   end
 
   def create
-    city_id = params[:city_id]
-    @city = City.find_by(id: city_id)
+    @city = City.friendly.find(params[:city_id])
     @user = current_user
     @post = Post.create(post_params)
     if @post.save
@@ -18,9 +18,9 @@ class PostsController < ApplicationController
       @user.posts << @post
       redirect_to user_post_path(@user, @post)
     else
-      p @post.errors.full_messages
-      flash[:error] = "Unable to add new post try again"
-      redirect_to posts_new_path(current_user)
+      flash[:error] = @post.errors.full_messages.join(" ")
+
+      redirect_to new_post_path(@city)
     end
 
   end
@@ -35,20 +35,22 @@ class PostsController < ApplicationController
 
 
   def edit
+    @user = User.friendly.find(params[:user_id])
     @post = Post.find_by_id(params[:id])
   end
 
   def update
+    @user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
-    redirect_to post_path
+    redirect_to user_path(@user)
   end
 
   def destroy
-    user = User.find_by_id(current_user)
+    user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.destroy
-    redirect_to user_path
+    redirect_to user_path(user)
   end
 
   private

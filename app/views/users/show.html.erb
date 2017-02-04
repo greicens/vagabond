@@ -1,51 +1,36 @@
 <div class="row">
-  <!-- profile info -->
-   <section class="col s6 offset-s3 m3 offset-m1">
-     <div class="card">
-       <!-- <%= image_tag "avatar.png", class: "responsive-img" %> -->
-       <%= image_tag @user.photo.thumb.url %>
-       <!-- <div class="card-image">
-         <span class="card-title">Card Title</span>
-       </div> -->
-       <div class="card-content teal white-text">
-         <p>
-           Name: <%= @user.first_name %>
-          </p>
-          <p>
-            Date joined: <%= @user.created_at %>
-          </p>
-          <p>
-            Current city: <%= @user.current_city %>
-          </p>
-       </div>
-     </div>
-   </section>
-   <!--post section -->
-   <section class="col s12 m7">
-     <div class="row">
-    <h3 class="header center"><%= @user.first_name %>'s posts</h3>
-    <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>This is the post</p>
+    <!-- PROFILE INFO -->
+    <section class="col s6 offset-s3 m3 offset-m1">
+        <div class="card">
+          <%= image_tag @user.photo.thumb.url %>
+            <div class="card-content teal white-text">
+                <p>
+                    Name:
+                    <%= @user.first_name %>
+                </p>
+                <p>
+                    Date joined:
+                    <%= @user.created_at %>
+                </p>
+                <p>
+                    Current city:
+                    <%= @user.current_city %>
+                </p>
+            </div>
         </div>
-        <div class="card-action">
-          <%= link_to "Edit" %>
-          <%= link_to "Delete" %>
+        <%= button_tag "Edit", data:{target: "edit-profile-modal"}, class: "btn" %>
+    </section>
+
+    <!-- EDIT/DELETE PROFILE -->
+    <section class="modal" id="edit-profile-modal">
+      <%= render "forms/edit_profile" %>
+    </section>
+    <!--POST SECTION -->
+    <section class="col s12 m7">
+      <h3 class="header center"><%= @user.first_name %>'s posts</h3>
+        <div class="row">
+            <%= render "users/users_post" %>
         </div>
-      </div>
-    </div>
-    <div class="card horizontal">
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>This is the post</p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Edit" %>
-          <%= link_to "Delete" %>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
- </div>
+    </section>
+
+</div>
