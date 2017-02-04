@@ -6,7 +6,7 @@
   <div class="card horizontal">
     <div class="card-stacked">
       <div class="card-content">
-        <p><%= post.title %></p>
+        <p><%= link_to "#{post.title}", user_post_path(post.user, post) %></p>
         <p><%= post.message %></p>
       </div>
     </div>
