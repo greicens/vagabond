@@ -37,7 +37,8 @@ gem 'carrierwave', '~> 1.0'
 
 # include a thumbnail
 gem 'mini_magick', '~> 4.3'
-
+# Use Materialize Icons
+gem 'material_icons'
 gem 'materialize-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

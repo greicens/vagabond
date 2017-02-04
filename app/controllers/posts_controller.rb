@@ -18,9 +18,9 @@ class PostsController < ApplicationController
       @user.posts << @post
       redirect_to user_post_path(@user, @post)
     else
-      p @post.errors.full_messages
-      flash[:error] = "Unable to add new post try again"
-      redirect_to posts_new_path(current_user)
+      flash[:error] = @post.errors.full_messages.join(" ")
+
+      redirect_to new_post_path(@city)
     end
 
   end
