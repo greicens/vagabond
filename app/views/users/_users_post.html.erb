@@ -3,7 +3,7 @@
     <div class="card-stacked">
         <div class="card-content">
             <span class="card-title">
-                <%= post.title %>
+                <%= link_to "#{post.title}",user_post_path(@user, post)  %>
             </span>
             <p>
                 <%= post.message %>
