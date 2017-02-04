@@ -1,10 +1,12 @@
 <section class="row">
     <h5 class="center">Welcome to the adventure!</h5>
+
+
     <div class="col m8 offset-m2 col s12">
         <%= form_for @user  do |f| %>
         <div class="row">
             <div class="input-field col s6">
-                <%= f.text_field :first_name, placeholder: "First Name" %>
+               <%= f.text_field :first_name, placeholder: "First Name", class:"validate" %>
             </div>
             <div class="input-field col s6">
                 <%= f.text_field :last_name, placeholder: "Last Name" %>
@@ -13,10 +15,10 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <%= f.text_field :email, placeholder: "Email" %>
+                <%= f.text_field :email, placeholder: "Email", class:"validate", type:"email" %>
             </div>
             <div class="input-field col s6">
-                <%= f.text_field :username, placeholder: "Username" %>
+                <%= f.text_field :username, placeholder: "Username", class:"validate", type:"username" %>
             </div>
         </div>
         <div class="row">
@@ -37,6 +39,6 @@
         <div class="modal-footer">
             <%= f.submit "Sign Up", class:"btn" %>
         </div>
-        <% end %>
-    </div>
+    <% end %>
+  </div>
 </section>
