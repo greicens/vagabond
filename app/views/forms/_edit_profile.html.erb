@@ -24,7 +24,7 @@
     </div>
     <div class="modal-footer">
         <%= f.submit "Submit", class:"btn" %>
-        <%= link_to "Delete Profile", @user, :class => "btn", method: :delete, data: {confirm: "Are you sure?"} %>
+        <%= link_to "Delete Profile", @user, class: "btn red", method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
     <% end %>
 </div>
