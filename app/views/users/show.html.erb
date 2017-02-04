@@ -16,6 +16,15 @@
                     Current city:
                     <%= @user.current_city %>
                 </p>
+                <p>
+                  Score:
+                  <%= @user.points %>
+                </p>
+                <p>Rank:
+                  <% if @user.points < 51 %>
+                  SCOUT
+                  <% end %>
+                </p>
             </div>
         </div>
         <%= button_tag "Edit", data:{target: "edit-profile-modal"}, class: "btn" %>
