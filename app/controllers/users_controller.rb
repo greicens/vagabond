@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    render :show
   end
 
   def edit
