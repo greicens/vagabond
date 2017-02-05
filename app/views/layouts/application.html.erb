@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vagabond</title>
+        <title>Trailblazer</title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,8 +10,8 @@
 
     <body>
         <header class="row">
-            <nav class="right-align">
-                <a href="/" class="left">Vagabond</a>
+            <nav class="right-align green accent-3">
+                <a href="/" class="left">TrailBlazer</a>
                 <%= link_to "Cities",  cities_path %>
                 <% if current_user %>
                 <%= link_to "Profile", user_path(current_user) %>
