@@ -14,10 +14,22 @@ module UsersHelper
   def rank
     if (@user.points < 50)
       "Scout"
-  elsif (@user.points.between?(50, 150))
+    elsif (@user.points.between?(50, 150))
       "Explorer"
-  elsif(@user.points.between?(150, 300))
-  else "Trail Blazer"
+    elsif(@user.points.between?(150, 300))
+      "Adventurer"
+    else "Trail Blazer"
+    end
+  end
+
+  def rank_image
+    if (@user.points < 50)
+      "scout.png"
+    elsif (@user.points.between?(50, 150))
+      "explorer.png"
+    elsif(@user.points.between?(150, 300))
+      "adventurer.png"
+    else "trailblazer.png"
     end
   end
 end
