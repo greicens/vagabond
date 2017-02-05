@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include UsersHelper
+
   has_many :posts
 
   mount_uploader :photo, PhotoUploader
@@ -9,6 +11,7 @@ class User < ApplicationRecord
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])
   end
+
 
   extend FriendlyId
   friendly_id :username, use: :slugged
