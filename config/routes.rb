@@ -17,18 +17,15 @@ Rails.application.routes.draw do
   get '/cities/:id', to: 'cities#show', as: 'city'
 
   # SESSION ROUTES
-  get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
   # POST ROUTES
-  # get '/users/:id/posts', to: 'posts#index'
-  # get '/cities/:city_id/posts', to: 'posts#index'
   get '/cities/:city_id/posts', to: 'posts#new', as: 'new_post'
   post '/cities/:city_id/posts', to: 'posts#create', as: 'posts'
   get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
-  get '/posts/:id/edit', to: 'posts#edit', as: 'edit_post'
-  patch '/posts/:id', to: 'posts#update'
-  delete '/users/user:id/posts/:id', to: 'posts#destroy', as: 'delete_post'
+  get '/user/:user_id/posts/:id/edit', to: 'posts#edit', as: 'post'
+  patch '/users/:user_id/posts/:id', to: 'posts#update'
+  delete '/users/:user_id/posts/:id', to: 'posts#destroy', as: 'delete_post'
 
 end

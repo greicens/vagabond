@@ -1,0 +1,17 @@
+<section class="row">
+  <h3 class="center">Edit a Post!</h3>
+  <div class="col m8 offset-m2 col s12">
+  <%= form_for [@user, @post]  do |f| %>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.text_field :title %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.text_field :message %>
+        </div>
+      </div>
+      <%= f.submit "Submit", class:"btn" %>
+      <%= link_to "Delete Post", delete_post_path(@user, @post), class:"btn red",:method => :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</section>
