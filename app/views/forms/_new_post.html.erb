@@ -1,0 +1,16 @@
+<div class="row">
+  <section class="col s8 m6 offset-m3 modal-content">
+    <h3 class="center">New Post</h3>
+    <%= form_for @post, url: new_post_path(@city)  do |f| %>
+    <div class="">
+        <%= f.text_field :title, placeholder: "Title" %>
+    </div>
+    <div class="">
+        <%= f.text_field :message, placeholder: "Message" %>
+    </div>
+    <div class="">
+        <%= f.submit "Create Post", class:"btn" %>
+    </div>
+    <% end %>
+  </section>
+</div>

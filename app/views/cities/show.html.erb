@@ -1,14 +1,19 @@
-<h1><%= @city.name %></h1>
-<h2><%= @city.description %></h2>
-<%= link_to "Add New Post", new_post_path(@city) %>
-<h3>Posts from <%=@city.name %></h3>
-<% @city.posts.each do |post| %>
-  <div class="card horizontal">
-    <div class="card-stacked">
-      <div class="card-content">
-        <p><%= post.title %></p>
-        <p><%= post.message %></p>
-      </div>
-    </div>
-  </div>
-<% end %>
+<section class="row">
+    <h1 class="center"><%= @city.name %></h1>
+    <h5 class="center"><%= @city.description %></h5>
+    <%= link_to "Add New Post", "#new-post" %>
+    <h3>Posts from
+        <%=@city.name %></h3>
+    <% @city.posts.sort_by(&:created_at).reverse.each do |post| %>
+    <div class="card horizontal">
+        <div class="card-stacked">
+            <div class="card-content">
+                <p><%= link_to "#{post.title}", user_post_path(post.user, post) %></p>
+                <p><%= post.message %></p>
+            </div>
+            <% end %>
+        </section>
+
+        <div class="modal" id="new-post">
+            <%= render "forms/new_post" %>
+        </div>

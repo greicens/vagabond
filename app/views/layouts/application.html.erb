@@ -23,11 +23,9 @@
             </nav>
         </header>
         <% flash.each do |name, msg| %>
-        <p>
-            <h4><%= name.capitalize %>
-                :
-                <%= msg %></h4>
-        </p>
+          <p>
+            <h4><%= name.capitalize %>: <%= msg %></h4>
+          </p>
         <% end %>
         <%= yield %>
         <!-- Modal Structure -->
@@ -35,7 +33,7 @@
             <%= render "forms/login" %>
         </div>
         <div id="signup" class="modal">
-            <%= render "forms/signup" %>
+          <%= render "forms/signup" %>
         </div>
         <!-- <footer class="page-footer">
           <div class="container">

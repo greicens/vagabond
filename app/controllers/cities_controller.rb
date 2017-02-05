@@ -5,7 +5,9 @@ class CitiesController < ApplicationController
   end
 
   def new
-    @city = City.new
+     @city = City.new
+     @user = current_user || User.new
+
   end
 
   def create
@@ -16,6 +18,7 @@ class CitiesController < ApplicationController
   def show
     @city = City.friendly.find(params[:id])
     @user = User.new
+    @post = Post.new
   end
 
   private
