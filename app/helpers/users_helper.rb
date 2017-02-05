@@ -10,4 +10,14 @@ module UsersHelper
     updated_points = @user.points + 10
     @user.update(points: updated_points)
   end
+
+  def rank
+    if (@user.points < 50)
+      "Scout"
+  elsif (@user.points.between?(50, 150))
+      "Explorer"
+  elsif(@user.points.between?(150, 300))
+  else "Trail Blazer"
+    end
+  end
 end

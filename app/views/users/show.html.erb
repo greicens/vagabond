@@ -21,9 +21,7 @@
                   <%= @user.points %>
                 </p>
                 <p>Rank:
-                  <% if @user.points < 51 %>
-                  SCOUT
-                  <% end %>
+                  <%= rank %>
                 </p>
             </div>
         </div>

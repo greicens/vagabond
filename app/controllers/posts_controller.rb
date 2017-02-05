@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     if @post.save
       @city.posts << @post
       @user.posts << @post
-      post_points(@user) #increase users points
+      post_points #increase users points
       redirect_to user_post_path(@user, @post)
     else
       flash[:error] = @post.errors.full_messages.join(" ")
