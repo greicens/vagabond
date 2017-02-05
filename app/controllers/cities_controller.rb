@@ -7,7 +7,7 @@ class CitiesController < ApplicationController
   def new
      @city = City.new
      @user = current_user || User.new
-
+     new_city_points
   end
 
   def create
