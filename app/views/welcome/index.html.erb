@@ -1,17 +1,57 @@
 <div class="parallax-container">
   <h1 class="center-align" id="head">TrailBlazer</h1>
-  <h1 class="center-align" id="blaze">Blaze the Trail to Your Next Adventure</h1>
+  <h2 class="center-align" id="blaze">What's Your Next Adventure?</h2>
   <div class="parallax">
-    <%= image_tag "cityscape3.jpg" %>
+    <%= image_tag "adventure.jpg" %>
   </div>
 </div>
 <div class="section white">
   <div class="row container">
-    <h2 class="header">TrailBlazer</h2>
-    <p class="grey-text text-darken-3 lighten-3">Blaze the Trail to Your Next Adventure</p>
-    <p>Bring over the login signup stuff and figure out life</p>
+    <h2 class="header">Become a Trailblazer</h2>
+    <h4>Create Posts to Level Up</h4>
+    <h4>Challenge Your Friends and Compare Your Travels</h4>
+    <div class="col s4">
+      <div class="center">
+        <%= image_tag "avatar.png", class: "responsive-img" %>
+        <p class="first_guy">Guy One</p>
+        <ul>
+          <li>Username: BlazeDaddy12</li>
+          <li>Rank: Explorer</li>
+          <li>Points: 140</li>
+          <li>Create an account to see posts from this user!</li>
+        </ul>
+      <!-- Promo Content 1 goes here -->
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="center">
+        <%= image_tag "avatar.png", class: "responsive-img" %>
+        <p class="first_guy">Guy Two</p>
+        <ul>
+          <li>Username: ShakaZulu</li>
+          <li>Rank: Adventurer</li>
+          <li>Points: 200</li>
+          <li>Create an account to see posts from this user!</li>
+        </ul>
+      <!-- Promo Content 1 goes here -->
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="center">
+        <%= image_tag "avatar.png", class: "responsive-img" %>
+        <p class="first_guy">Guy Three</p>
+        <ul>
+          <li>Username: SonictheHedgehog</li>
+          <li>Rank: TrailBlazer</li>
+          <li>Points: 450</li>
+          <li>Create an account to see posts from this user!</li>
+        </ul>
+      <!-- Promo Content 1 goes here -->
+      </div>
+    </div>
   </div>
 </div>
+
 <div class="parallax-container">
   <div class="parallax">
     <%= image_tag "cityscape.jpg" %>
@@ -19,12 +59,26 @@
 </div>
 <div class="section white">
   <div class="row container">
-    <h2 class="header">Put some stuff here?</h2>
-    <p class="grey-text text-darken-3 lighten-3">Or maybe here?</p>
+    <div class="col s6 center">
+      <h4 class="header">Blaze the Trail to Your Next Adventure</h4>
+      <p><%= link_to "Sign Up Now", "#signup", class: "btn-large" %></p>
+    </div>
+    <div class="col s6 center">
+      <h4 class="header">Rejoin Your Community of Travellers</h4>
+      <p><%= link_to "Log In", "#signup", class: "btn-large" %></p>
+    </div>
   </div>
 </div>
 <div class="parallax-container last">
   <div class="parallax">
     <%= image_tag "cityscape4.jpg" %>
   </div>
+</div>
+
+<!-- Modal Login -->
+<div id="login" class="modal">
+  <%= render "forms/login" %>
+</div>
+<div id="signup" class="modal">
+  <%= render "forms/signup" %>
 </div>
