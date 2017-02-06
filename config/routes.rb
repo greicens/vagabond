@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/' => 'welcome#index'
+  get '/' => 'welcome#index', as: "root"
   # USER ROUTES
   get '/users', to: 'users#index'
   get '/users/new', to: 'users#new', as: 'new_user'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/cities/:id', to: 'cities#show', as: 'city'
 
   # SESSION ROUTES
+  get '/', to: 'sessions#new', as: 'login'
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 

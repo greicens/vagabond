@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+    @user = User.new
+  end
 
   def create
     user_params = params.require(:user).permit(:email, :password)
@@ -8,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Successfully logged in."
       redirect_to @user
     else
-      flash[:sign_in_error] = "Incorrect email or password"
+      flash[:sign_up_error] = "Incorrect email or password"
       redirect_to login_path
     end
   end
