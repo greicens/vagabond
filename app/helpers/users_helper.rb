@@ -40,6 +40,7 @@ module UsersHelper
     for i in 0..2
       top_users << users[i]
     end
-    top_users
+     top_users
   end
+
 end

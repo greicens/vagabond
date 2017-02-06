@@ -17,7 +17,7 @@ user_data = [
     email: "admin@admin",
     username: "admin",
     password:"123",
-    points: 450,
+    points: 150,
     current_city: "San Francisco"
   },
   {
@@ -26,7 +26,7 @@ user_data = [
     email: "admin2@admin2",
     username: "admin2",
     password:"123",
-    points: 400,
+    points: 350,
     current_city: "San Francisco"
   },
   {
@@ -44,14 +44,14 @@ user_data = [
     email: "rl@example.com",
     username: "rlee",
     password:"123",
-    points: 250,
+    points: 370,
     current_city: "Gibraltar"
   },
   {
     first_name: "Lady",
     last_name: "Gaga",
     email: "lg@example.com",
-    username: "rgaga",
+    username: "lgaga",
     password:"123",
     points: 450,
     current_city: "Gibraltar"
