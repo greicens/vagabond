@@ -1,8 +1,10 @@
 <section class="row">
     <h5 class="center">Welcome to the adventure!</h5>
-    <% flash.each do |name, msg| %>
-    <%= msg %>
-    <% end %>
+    <p class="center red-text">
+      <% flash.each do |name, msg| %>
+      <strong><%= msg %></strong>
+      <% end %>
+    </p>
     <div class="col m8 offset-m2 col s12">
         <%= form_for @user , :validate => true  do |f| %>
         <div class="row">
