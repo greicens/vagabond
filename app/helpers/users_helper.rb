@@ -33,7 +33,4 @@ module UsersHelper
     end
   end
 
-  def top_3
-    
-  end
 end

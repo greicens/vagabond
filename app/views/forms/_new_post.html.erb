@@ -3,10 +3,10 @@
     <h3 class="center">New Post</h3>
     <%= form_for @post, url: new_post_path(@city)  do |f| %>
     <div class="">
-        <%= f.text_field :title, placeholder: "Title" %>
+        <%= f.text_field :title, placeholder: "Title", max: 200, required: true %>
     </div>
     <div class="">
-        <%= f.text_field :message, placeholder: "Message" %>
+        <%= f.text_field :message, placeholder: "Message", required: true, min: 1, max: 200, data:{error: "wrong" }%>
     </div>
     <div class="">
         <%= f.submit "Create Post", class:"btn" %>
