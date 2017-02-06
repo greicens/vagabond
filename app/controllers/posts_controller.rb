@@ -18,11 +18,11 @@ class PostsController < ApplicationController
       @city.posts << @post
       @user.posts << @post
       post_points #increase users points
-      redirect_to user_post_path(@user, @post)
+      redirect_to city_path(@city)
     else
-      flash[:error] = @post.errors.full_messages.join(" ")
+      flash[:new_post_error] = @post.errors.full_messages.join(" ")
 
-      redirect_to new_post_path(@city)
+      redirect_to city_path(@city)
     end
 
   end

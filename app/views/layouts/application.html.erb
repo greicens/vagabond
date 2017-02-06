@@ -31,6 +31,14 @@
             });
         </script>
         <% end %>
+        <% if flash[:new_post_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                console.log("script working")
+                $('#new-post').modal('open')
+            });
+        </script>
+        <% end %>
 
         <%= yield %>
         <!-- Modal Structure -->
