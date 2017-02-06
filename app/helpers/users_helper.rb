@@ -33,4 +33,13 @@ module UsersHelper
     end
   end
 
+  def top_users
+    users = User.order(:points).reverse
+    top_users = []
+
+    for i in 0..2
+      top_users << users[i]
+    end
+    top_users
+  end
 end

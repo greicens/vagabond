@@ -28,7 +28,44 @@ user_data = [
     password:"123",
     points: 400,
     current_city: "San Francisco"
+  },
+  {
+    first_name: "Adam",
+    last_name: "Smith",
+    email: "as@example.com",
+    username: "asmith",
+    password:"123",
+    points: 45,
+    current_city: "San Francisco"
+  },
+  {
+    first_name: "Rachel",
+    last_name: "Lee",
+    email: "rl@example.com",
+    username: "rlee",
+    password:"123",
+    points: 250,
+    current_city: "Gibraltar"
+  },
+  {
+    first_name: "Lady",
+    last_name: "Gaga",
+    email: "lg@example.com",
+    username: "rgaga",
+    password:"123",
+    points: 450,
+    current_city: "Gibraltar"
+  },
+  {
+    first_name: "Ryan",
+    last_name: "Reynolds",
+    email: "rr@example.com",
+    username: "rreynolds",
+    password:"123",
+    points: 900,
+    current_city: "Gibraltar"
   }
+
 ]
 city_data = [{
     name:"London",
