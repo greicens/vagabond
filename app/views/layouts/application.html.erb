@@ -9,10 +9,14 @@
     </head>
 
     <body>
-        <nav class="right-align green accent-3">
-            <ul class="nav-wrapper">
+        <nav class="green accent-3">
+          <%= link_to "Trailblazer", "/", class: "brand-logo left" %>
+            <ul class="nav-wrapper right">
                 <li>
-                    <a href="/" class="left">TrailBlazer</a>
+                  <%= link_to "Home", "/" %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
                 </li>
                 <li>
                     <%= link_to "Cities",  cities_path %>
