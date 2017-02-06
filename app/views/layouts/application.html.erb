@@ -9,19 +9,31 @@
     </head>
 
     <body>
-        <header class="row">
-            <nav class="right-align green accent-3">
-                <a href="/" class="left">TrailBlazer</a>
-                <%= link_to "Cities",  cities_path %>
+        <nav class="right-align green accent-3">
+            <ul class="nav-wrapper">
+                <li>
+                    <a href="/" class="left">TrailBlazer</a>
+                </li>
+                <li>
+                    <%= link_to "Cities",  cities_path %>
+                </li>
                 <% if current_user %>
-                <%= link_to "Profile", user_path(current_user) %>
-                <%= link_to "Log Out", logout_path %>
+                <li>
+                    <%= link_to "Profile", user_path(current_user) %>
+                </li>
+                <li>
+                    <%= link_to "Log Out", logout_path %>
+                </li>
             <% else %>
-                <%=link_to "Log In", "#login"%>
-                <%=link_to "Sign Up", "#signup"%>
+                <li>
+                    <%=link_to "Log In", "#login"%>
+                </li>
+                <li>
+                    <%=link_to "Sign Up", "#signup"%>
+                </li>
                 <% end %>
-            </nav>
-        </header>
+            </ul>
+        </nav>
 
         <% if flash[:sign_in_error] %>
         <script type="text/javascript">
