@@ -30,8 +30,12 @@
         </div>
     </div>
     <div class="modal-footer">
+      <div class="col s6">
         <%= f.submit "Submit", class:"btn" %>
+      </div>
+      <div class="col s6">
         <%= link_to "Delete Profile", @user, class: "btn red", method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
+      </div>
     </div>
     <% end %>
 </div>
