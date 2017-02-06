@@ -19,21 +19,25 @@
             <% else %>
                 <%=link_to "Log In", "#login"%>
                 <%=link_to "Sign Up", "#signup"%>
-            <% end %>
+                <% end %>
             </nav>
         </header>
-        <% flash.each do |name, msg| %>
-          <p>
-            <h4><%= name.capitalize %>: <%= msg %></h4>
-          </p>
+        <% if flash[:sign_in_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                console.log("script working")
+                $('#signup').modal('open')
+            });
+        </script>
         <% end %>
+
         <%= yield %>
         <!-- Modal Structure -->
         <div id="login" class="modal">
             <%= render "forms/login" %>
         </div>
         <div id="signup" class="modal">
-          <%= render "forms/signup" %>
+            <%= render "forms/signup" %>
         </div>
 
     </body>

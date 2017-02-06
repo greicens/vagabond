@@ -1,6 +1,7 @@
 <section class="row">
     <h1 class="center"><%= @city.name %></h1>
     <h5 class="center"><%= @city.description %></h5>
+    <%= image_tag @city.photo %>
     <%= link_to "Add New Post", "#new-post" %>
     <h3>Posts from
         <%=@city.name %></h3>
