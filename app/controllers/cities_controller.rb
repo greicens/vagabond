@@ -1,10 +1,13 @@
 class CitiesController < ApplicationController
   def index
+    @user = current_user || User.new
     @cities = City.all
   end
 
   def new
-    @city = City.new
+     @city = City.new
+     @user = current_user || User.new
+     new_city_points
   end
 
   def create
@@ -14,6 +17,8 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.friendly.find(params[:id])
+    @user = User.new
+    @post = Post.new
   end
 
   private

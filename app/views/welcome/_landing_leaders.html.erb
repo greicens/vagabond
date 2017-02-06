@@ -1,0 +1,30 @@
+<% top_users.each do |user| %>
+
+<div class="col s12 m4">
+    <div class="card-panel grey lighten-5 z-depth-1">
+        <span class="card-title center">
+
+            <h5><strong><%= user.username %></strong></h5>
+            <%= image_tag "trailblazer.png", class: "responsive-img right" %>
+            <hr >
+        </span>
+        <div class="row valign-wrapper">
+            <div class="col s4">
+                <%= image_tag user.photo, class: "responsive-img circle" %>
+            </div>
+            <div class="col s8">
+                <span class="black-text">
+                    <p>
+                        <strong>
+                            Points:
+                        </strong><%= user.points %></p>
+                    <p>
+                        <strong>
+                            Rank:
+                        </strong> trailblazer</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

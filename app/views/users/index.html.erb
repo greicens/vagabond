@@ -1,0 +1,40 @@
+<section class="parallax-container valign-wrapper">
+  <div class="parallax">
+    <%= image_tag "users_group.jpg" %>
+  </div>
+  <div class="valign">
+  <h3 class="center-align white-text">Exploring.. It's better with a friend</h3>
+</div>
+</section>
+<section class="row container">
+    <% @users.each do |user| %>
+    <div class="col m3">
+        <div class="card small">
+            <div class="card-image">
+                <%= image_tag user.photo, class: "responsive-img" %>
+            </div>
+            <div class="card-content hoverable">
+                <p>
+                    Username:
+                    <strong>
+                        <%= link_to "#{user.username}", user_path(user) %>
+                    </strong>
+                </p>
+                <p>
+                    Current City:
+                    <strong>
+                        <%= user.current_city %>
+                    </strong>
+                </p>
+                <p>
+                    Rank:
+                    <strong>
+                        <%= city_user_rank_title(user) %>
+                    </strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
+</section>

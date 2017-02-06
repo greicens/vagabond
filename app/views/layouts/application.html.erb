@@ -1,38 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Vagabond</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Trailblazer</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+    </head>
 
-  <body>
-    <header class="row">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/">Vagabond</a>
-          <%= link_to "Cities", cities_path %>
-          <% if current_user %>
-          <ul id="nav-mobile" class="right">
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log Out", logout_path %></li>
-          </ul>
-          <% else %>
-          <ul id="nav-mobile" class="right">
-            <li><%=link_to "Log In", login_path%></li>
-            <li><%=link_to "Sign Up", new_user_path%></li>
-          </ul>
-          <% end %>
+    <body>
+        <nav class="green accent-3">
+          <%= link_to "Trailblazer", "/", class: "brand-logo left" %>
+            <ul class="nav-wrapper right">
+                <li>
+                  <%= link_to "Home", "/" %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
+                </li>
+                <li>
+                    <%= link_to "Cities",  cities_path %>
+                </li>
+                <% if current_user %>
+                <li>
+                    <%= link_to "Profile", user_path(current_user) %>
+                </li>
+                <li>
+                    <%= link_to "Log Out", logout_path %>
+                </li>
+            <% else %>
+                <li>
+                    <%=link_to "Log In", "#login"%>
+                </li>
+                <li>
+                    <%=link_to "Sign Up", "#signup"%>
+                </li>
+                <% end %>
+            </ul>
+        </nav>
+
+        <% if flash[:sign_up_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#signup').modal('open')
+            });
+        </script>
+        <% end %>
+
+        <% if flash[:login_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#login').modal('open')
+            });
+        </script>
+        <% end %>
+
+        <% if flash[:new_post_error] %>
+          <script type="text/javascript">
+            $(window).load(function () {
+                $('#new-post').modal('open')
+            });
+          </script>
+        <% end %>
+
+        <%= yield %>
+        <!-- Modal Structure -->
+        <div id="login" class="modal">
+            <%= render "forms/login" %>
         </div>
-      </nav>
-    </header>
-    <% flash.each do |name, msg| %>
-      <p>
-        <h4><%= name.capitalize %> : <%= msg %></h4>
-      </p>
-      <% end %>
-    <%= yield %>
-  </body>
+        <div id="signup" class="modal">
+            <%= render "forms/signup" %>
+        </div>
+        
+        <!-- FOOTER SECTION -->
+        <footer class="page-footer green darken-3">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">While blazing trails can be adventurous and fun, it can also be quite dangerous. Please explore responsibly and always use the buddy system. Life's always better when explored in pairs! :)</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Connect with TB!</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Jobs</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Trailblazer inc.
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+    </body>
 </html>

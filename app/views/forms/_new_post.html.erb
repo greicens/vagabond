@@ -1,0 +1,21 @@
+<div class="row">
+  <section class="col s8 m6 offset-m3 modal-content">
+    <h3 class="center">New Post</h3>
+    <p class=" center red-text">
+      <% flash.each do |name, msg| %>
+        <%= msg %>
+      <% end %>
+    </p>
+    <%= form_for @post, url: new_post_path(@city)  do |f| %>
+    <div class="">
+        <%= f.text_field :title, placeholder: "Title", max: 200, required: true %>
+    </div>
+    <div class="">
+        <%= f.text_field :message, placeholder: "Message", required: true, min: 1, max: 200, data:{error: "wrong" }%>
+    </div>
+    <div class="">
+        <%= f.submit "Create Post", class:"btn" %>
+    </div>
+    <% end %>
+  </section>
+</div>

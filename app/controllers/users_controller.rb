@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.new
   end
 
   def new
@@ -15,14 +16,14 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to @user
     else
-      flash[:error] = "Unable to add new user try again"
-      redirect_to login_path
+      flash[:sign_up_error] = @user.errors.full_messages.join(" ")
+      @dialog = true
+      redirect_to '/'
     end
   end
 
   def show
     @user = User.friendly.find(params[:id])
-    render :show
   end
 
   def edit
@@ -31,19 +32,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.friendly.find(params[:id])
-    user.update(user_params)
+    @user.update(user_params)
     redirect_to user_path
   end
 
   def destroy
     @user = User.friendly.find(params[:id])
-    user.destroy
+    @user.destroy
     redirect_to '/'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password, :photo)
+    params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password, :photo, :username)
   end
 end

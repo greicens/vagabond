@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
+  include UsersHelper
   before_action :require_login, only: [:new]
-
-  # before_action :require_login, only: [:new]
   def index
     @city_posts = Post.all
   end
 
   def new
     @post = Post.new
+    @user = current_user || User.new
   end
 
   def create
@@ -17,11 +17,12 @@ class PostsController < ApplicationController
     if @post.save
       @city.posts << @post
       @user.posts << @post
-      redirect_to user_post_path(@user, @post)
+      post_points #increase users points
+      redirect_to city_path(@city)
     else
-      p @post.errors.full_messages
-      flash[:error] = "Unable to add new post try again"
-      redirect_to posts_new_path(current_user)
+      flash[:new_post_error] = @post.errors.full_messages.join(" ")
+
+      redirect_to city_path(@city)
     end
 
   end
@@ -36,20 +37,22 @@ class PostsController < ApplicationController
 
 
   def edit
+    @user = User.friendly.find(params[:user_id])
     @post = Post.find_by_id(params[:id])
   end
 
   def update
+    @user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.update(post_params)
-    redirect_to post_path
+    redirect_to user_path(@user)
   end
 
   def destroy
-    user = User.friendly.find(current_user)
+    user = User.friendly.find(params[:user_id])
     post = Post.find_by_id(params[:id])
     post.destroy
-    redirect_to user_path
+    redirect_to user_path(user)
   end
 
   private

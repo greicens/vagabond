@@ -1,5 +1,12 @@
-<% @cities.each do |city| %>
-<h1><%= link_to "#{city.name}", city_path(city) %></h1>
-<p><%= city.description %></p>
-<hr>
-<% end %>
+<div class="parallax-container">
+    <div class="parallax"><%= image_tag "london.jpg" %>
+    </div>
+</div>
+<section class="row">
+    <% @cities.sort_by(&:name).each do |city| %>
+    <div class="col m8 offset-m2 s10 offset-s1">
+        <h1><%= link_to "#{city.name}", city_path(city) %></h1>
+        <p><%= city.description %></p>
+        <hr></div>
+    <% end %>
+</section>
