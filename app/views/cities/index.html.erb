@@ -1,3 +1,8 @@
+<div class="parallax-container">
+  <div class="parallax"><%= image_tag "london.jpg" %>
+  </div>
+</div>
+
 <% @cities.sort_by(&:name).each do |city| %>
 <h1><%= link_to "#{city.name}", city_path(city) %></h1>
 <p><%= city.description %></p>

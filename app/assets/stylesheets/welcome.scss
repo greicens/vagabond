@@ -1,6 +1,18 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+footer {
+  margin-bottom: 0 !important;
+}
 #head {
   margin: 12%;
   color: white;
@@ -8,7 +20,6 @@
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-  // text-outline: 4px 4px #fff
 }
 #blaze {
   margin-top: -12%;
@@ -20,19 +31,7 @@
 }
 
 .parallax-container {
-  margin-top: -20px;
-  height: 500px;
-}
-
-.last {
-  margin-bottom: -20px;
-}
-
-.section {
-  height: auto;
-}
-
-.s4 {
-  margin-top: 20px;
-  // border: 1px solid black;
+  // margin-top: -20px;
+  // height: 500px;
+  background-color: rgba(0,0,0,.5)
 }
