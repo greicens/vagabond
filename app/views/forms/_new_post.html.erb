@@ -1,6 +1,9 @@
 <div class="row">
   <section class="col s8 m6 offset-m3 modal-content">
     <h3 class="center">New Post</h3>
+    <% flash.each do |name, msg| %>
+      <%= msg %>
+    <% end %>
     <%= form_for @post, url: new_post_path(@city)  do |f| %>
     <div class="">
         <%= f.text_field :title, placeholder: "Title", max: 200, required: true %>

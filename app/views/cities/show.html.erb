@@ -5,11 +5,13 @@
         <h1 class="center"><%= @city.name %></h1>
         <h5 class="center"><%= @city.description %></h5>
     </div>
-    <%= link_to "Add New Post", "#new-post", class:"btn horizontal col s12 blue lighten waves-light" %>
-
+      <% if current_user %>
+      <%= link_to "Add New Post", "#new-post", class:"btn horizontal col s12 blue lighten waves-light" %>
+      <% end %>
     <h3>Posts from
         <%=@city.name %></h3>
     <hr >
+
     <% @city.posts.sort_by(&:created_at).reverse.each do |post| %>
     <section class="container">
         <div class="card-panel blue lighten-5 z-depth-1">
@@ -21,6 +23,9 @@
                 <%= link_to "#{post.title}", user_post_path(post.user, post), class: "center" %>
                 <%= image_tag city_user_rank(post.user), class: "responsive-img right" %>
                 <hr >
+                <% if current_user == post.user %>
+                <%= button_tag "Edit", data:{target: "edit-profile-modal"}, class: "btn" %>
+                <% end %>
             </span>
 
         </div>
@@ -32,3 +37,6 @@
 <div class="modal" id="new-post">
     <%= render "forms/new_post" %>
 </div>
+<section class="modal" id="edit-profile-modal">
+  <%= render "forms/edit_profile" %>
+</section>
