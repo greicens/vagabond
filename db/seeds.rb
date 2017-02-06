@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Post.destroy_all
 City.destroy_all
 User.destroy_all
@@ -17,7 +16,7 @@ user_data = [
     email: "admin@admin",
     username: "admin",
     password:"123",
-    points: 450,
+    points: 150,
     current_city: "San Francisco"
   },
   {
@@ -26,7 +25,7 @@ user_data = [
     email: "admin2@admin2",
     username: "admin2",
     password:"123",
-    points: 400,
+    points: 350,
     current_city: "San Francisco"
   },
   {
@@ -39,22 +38,22 @@ user_data = [
     current_city: "San Francisco"
   },
   {
-    first_name: "Rachel",
-    last_name: "Lee",
-    email: "rl@example.com",
-    username: "rlee",
+    first_name: "Glenn",
+    last_name: "Rhee",
+    email: "gr@example.com",
+    username: "grhee",
     password:"123",
-    points: 250,
-    current_city: "Gibraltar"
+    points: 370,
+    current_city: "Woodbury",
   },
   {
     first_name: "Lady",
     last_name: "Gaga",
     email: "lg@example.com",
-    username: "rgaga",
+    username: "lgaga",
     password:"123",
     points: 450,
-    current_city: "Gibraltar"
+    current_city: "New York",
   },
   {
     first_name: "Ryan",
@@ -63,9 +62,8 @@ user_data = [
     username: "rreynolds",
     password:"123",
     points: 900,
-    current_city: "Gibraltar"
+    current_city: "New York",
   }
-
 ]
 city_data = [{
     name:"London",
@@ -76,32 +74,17 @@ city_data = [{
     name:"Gibraltar",
     description: "A British colony centered around the heavily fortified Rock of Gibraltar, a strategically located peninsula on the north side of the Strait of Gibraltar, connecting the Mediterranean Sea and the Atlantic Ocean between Spain and northern Africa. Gibraltar was captured by Arabs in 711 and passed to the Spanish in 1462.",
     photo: "gibraltar.jpg"
+  },
+  {
+    name:"San Francisco",
+    description: " A crimson bridge, cable cars, a sparkling bay, and streets lined with elegant Victorian homes—San Francisco is undeniably one of the world’s great cities. Located along the Northern California at the state’s distinctive bend in the coast, the region has an alluring magic that stretches beyond the bay to diverse cities with nightlife and trend-setting cuisine.",
+    photo: "san_fran.jpg"
+
   }
 ]
 post_data = []
 
-
-# 4.times do
-#   user_data << {
-#     first_name: FFaker::Name.first_name,
-#     last_name: FFaker::Name.last_name,
-#     email: FFaker::Internet.email,
-#     username: FFaker::Internet.user_name,
-#     password:"123",
-#     points: Random.new.rand(15..500),
-#     current_city: FFaker::Address.city
-#   }
-# end
-
-# 3.times do
-#   city_data << {
-#     name: FFaker::Address.city,
-#     description: FFaker::Lorem.phrase,
-#     photo: "coming_soon.png"
-#   }
-# end
-
-2.times do
+3.times do
   post_data << {
     title: FFaker::Lorem.phrase,
     message: FFaker::Lorem.phrase
@@ -113,10 +96,13 @@ User.friendly.create(user_data)
 Post.create(post_data)
 
 firstuser = User.first
-seconduser = User.last
+seconduser = User.second
+thirduser = User.last
 posts = Post.all
 
 City.first.posts << posts[0]
 firstuser.posts << posts[0]
-City.last.posts << posts[1]
-seconduser.posts << posts[1]
+City.second.posts << posts[1]
+firstuser.posts << posts[1]
+City.last.posts << posts[2]
+thirduser.posts << posts[2]
