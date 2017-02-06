@@ -31,6 +31,13 @@
             });
         </script>
         <% end %>
+        <% if flash[:login_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#login').modal('open')
+            });
+        </script>
+        <% end %>
 
         <%= yield %>
         <!-- Modal Structure -->
