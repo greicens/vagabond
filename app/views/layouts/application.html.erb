@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vagabond</title>
+        <title>Trailblazer</title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -10,8 +10,8 @@
 
     <body>
         <header class="row">
-            <nav class="right-align">
-                <a href="/" class="left">Vagabond</a>
+            <nav class="right-align green accent-3">
+                <a href="/" class="left">TrailBlazer</a>
                 <%= link_to "Cities",  cities_path %>
                 <% if current_user %>
                 <%= link_to "Profile", user_path(current_user) %>
@@ -39,6 +39,29 @@
         <div id="signup" class="modal">
             <%= render "forms/signup" %>
         </div>
-
+        <!-- <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Trailblazer, Who Will Explore It All</h5>
+                <p class="grey-text text-lighten-4">Travel, Compare, Compete</p>
+              </div> -->
+              <!-- <div class="col l4 offset-l2 s12"> -->
+                <!-- <h5 class="white-text">Links</h5> -->
+                <!-- <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul> -->
+              <!-- </div> -->
+            <!-- </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Trailblazer, All rights reserved.
+            </div>
+          </div>
+        </footer> -->
     </body>
 </html>
