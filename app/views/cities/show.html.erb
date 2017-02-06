@@ -1,11 +1,12 @@
 <section class="row">
     <!-- CITY HEADER -->
     <div class="parallax-container">
-        <div class="parallax"><%= image_tag "san_fran.jpg" %></div>
+        <div class="parallax"><%= image_tag @city.photo %></div>
         <h1 class="center"><%= @city.name %></h1>
         <h5 class="center"><%= @city.description %></h5>
     </div>
     <%= link_to "Add New Post", "#new-post", class:"btn horizontal col s12 blue lighten waves-light" %>
+
     <h3>Posts from
         <%=@city.name %></h3>
     <hr >

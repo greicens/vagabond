@@ -16,7 +16,8 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:error] = @user.errors.full_messages.join(" ")
-      # redirect_to '/'
+      @dialog = true
+      redirect_to '/'
     end
   end
 
