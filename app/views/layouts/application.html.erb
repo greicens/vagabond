@@ -23,13 +23,28 @@
             </nav>
         </header>
 
-        <% if flash[:sign_in_error] %>
+        <% if flash[:sign_up_error] %>
         <script type="text/javascript">
             $(window).load(function () {
-                console.log("script working")
                 $('#signup').modal('open')
             });
         </script>
+        <% end %>
+
+        <% if flash[:login_error] %>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#login').modal('open')
+            });
+        </script>
+        <% end %>
+
+        <% if flash[:new_post_error] %>
+          <script type="text/javascript">
+            $(window).load(function () {
+                $('#new-post').modal('open')
+            });
+          </script>
         <% end %>
 
         <%= yield %>
