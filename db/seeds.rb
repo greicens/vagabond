@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+include UsersHelper
 
 Post.destroy_all
 City.destroy_all
@@ -39,13 +40,13 @@ user_data = [
     current_city: "San Francisco"
   },
   {
-    first_name: "Rachel",
-    last_name: "Lee",
-    email: "rl@example.com",
-    username: "rlee",
+    first_name: "Glenn",
+    last_name: "Rhee",
+    email: "gr@example.com",
+    username: "grhee",
     password:"123",
     points: 370,
-    current_city: "Gibraltar"
+    current_city: "Woodbury",
   },
   {
     first_name: "Lady",
@@ -54,7 +55,7 @@ user_data = [
     username: "lgaga",
     password:"123",
     points: 450,
-    current_city: "Gibraltar"
+    current_city: "New York",
   },
   {
     first_name: "Ryan",
@@ -63,7 +64,7 @@ user_data = [
     username: "rreynolds",
     password:"123",
     points: 900,
-    current_city: "Gibraltar"
+    current_city: "New York",
   }
 
 ]
