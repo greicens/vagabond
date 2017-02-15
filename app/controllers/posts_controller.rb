@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def show
     post_id = params[:id]
-    @user = current_user
+    @user = User.friendly.find(params[:user_id])
     @post = @user.posts.find_by_id(post_id)
 
   end
