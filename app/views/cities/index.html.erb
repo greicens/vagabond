@@ -1,5 +1,22 @@
-<% @cities.sort_by(&:name).each do |city| %>
-<h1><%= link_to "#{city.name}", city_path(city) %></h1>
-<p><%= city.description %></p>
-<hr>
-<% end %>
+<div class="slider">
+    <ul class="slides black-tint">
+      <% @cities.each do |city| %>
+      <li class="black-tint">
+        <%= image_tag city.photo, class: "black-tint"%> <!-- random image -->
+        <div class="caption center-align">
+          <h3><%= city.name %></h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+<section class="row">
+    <% @cities.sort_by(&:name).each do |city| %>
+    <div class="col m8 offset-m2 s10 offset-s1">
+        <h1><%= link_to "#{city.name}", city_path(city) %></h1>
+        <p><%= city.description %></p>
+        <hr></div>
+    <% end %>
+</section>

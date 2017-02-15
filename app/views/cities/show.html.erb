@@ -2,12 +2,13 @@
     <!-- CITY HEADER -->
     <div class="parallax-container">
         <div class="parallax"><%= image_tag @city.photo %></div>
-        <h1 class="center"><%= @city.name %></h1>
-        <h5 class="center"><%= @city.description %></h5>
+        <h1 class="center white-text"><%= @city.name %></h1>
+        <h5 class="center white-text"><%= @city.description %></h5>
     </div>
       <% if current_user %>
-      <%= link_to "Add New Post", "#new-post", class:"btn horizontal col s12 blue lighten waves-light" %>
+      <%= link_to "Add New Post", "#new-post", class:"btn right blue lighten waves-light" %>
       <% end %>
+
     <h3>Posts from
         <%=@city.name %></h3>
     <hr >
