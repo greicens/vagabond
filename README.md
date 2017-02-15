@@ -1,24 +1,24 @@
-# README
+# [Trailblazer](https://stark-cliffs-39113.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Motivation
 
-Things you may want to cover:
+Trailblazer was built as a way to travelers to share their stories , explore cities and earn points through an engaging game.
 
-* Ruby version
+Users will be able to create, edit and delete a profile and earn points by adding posts for a city or adding a new city.
 
-* System dependencies
+#Technologies & Languages Used   
 
-* Configuration
+* Materialize
+* Ruby on Rails
+* PostgreSql
+* jQuery
+* HTML5
+* CSS
+* JavaScript
 
-* Database creation
+## Team
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Aaron Steele](https://www.linkedin.com/in/a-steele/)
+* [Greice Silva](https://www.linkedin.com/in/greicesilva/)
+* [Ryan Thomas](https://www.linkedin.com/in/ryanthomas92/)
+* [Shivinder Gogna](https://www.linkedin.com/in/shivindergogna/)
